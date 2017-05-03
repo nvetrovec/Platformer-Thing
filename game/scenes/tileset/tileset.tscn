@@ -1,0 +1,511 @@
+[gd_scene load_steps=19 format=1]
+
+[ext_resource path="res://scenes/tileset/tileset.gd" type="Script" id=1]
+[ext_resource path="res://scenes/tileset/tileset.tex" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=8]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=9]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=10]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=11]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=12]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=13]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=14]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=15]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=16]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 8 )
+
+[node name="tileset" type="Node2D"]
+
+script/script = ExtResource( 1 )
+reset = false
+sprite_sheet = ExtResource( 2 )
+rows = 4
+columns = 4
+tile_size = 16
+
+[node name="tile_0" type="Sprite" parent="."]
+
+transform/pos = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+region = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="body" type="StaticBody2D" parent="tile_0"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="hitbox" type="CollisionShape2D" parent="tile_0/body"]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="tile_1" type="Sprite" parent="."]
+
+transform/pos = Vector2( 28, 8 )
+texture = ExtResource( 2 )
+region = true
+region_rect = Rect2( 16, 0, 16, 16 )
+
+[node name="body" type="StaticBody2D" parent="tile_1"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="hitbox" type="CollisionShape2D" parent="tile_1/body"]
+
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="tile_2" type="Sprite" parent="."]
+
+transform/pos = Vector2( 48, 8 )
+texture = ExtResource( 2 )
+region = true
+region_rect = Rect2( 32, 0, 16, 16 )
+
+[node name="body" type="StaticBody2D" parent="tile_2"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="hitbox" type="CollisionShape2D" parent="tile_2/body"]
+
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+
+[node name="tile_3" type="Sprite" parent="."]
+
+transform/pos = Vector2( 68, 8 )
+texture = ExtResource( 2 )
+region = true
+region_rect = Rect2( 48, 0, 16, 16 )
+
+[node name="body" type="StaticBody2D" parent="tile_3"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="hitbox" type="CollisionShape2D" parent="tile_3/body"]
+
+shape = SubResource( 4 )
+trigger = false
+_update_shape_index = 0
+
+[node name="tile_4" type="Sprite" parent="."]
+
+transform/pos = Vector2( 8, 28 )
+texture = ExtResource( 2 )
+region = true
+region_rect = Rect2( 0, 16, 16, 16 )
+
+[node name="body" type="StaticBody2D" parent="tile_4"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="hitbox" type="CollisionShape2D" parent="tile_4/body"]
+
+shape = SubResource( 5 )
+trigger = false
+_update_shape_index = 0
+
+[node name="tile_5" type="Sprite" parent="."]
+
+transform/pos = Vector2( 28, 28 )
+texture = ExtResource( 2 )
+region = true
+region_rect = Rect2( 16, 16, 16, 16 )
+
+[node name="body" type="StaticBody2D" parent="tile_5"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 6 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="hitbox" type="CollisionShape2D" parent="tile_5/body"]
+
+shape = SubResource( 6 )
+trigger = false
+_update_shape_index = 0
+
+[node name="tile_6" type="Sprite" parent="."]
+
+transform/pos = Vector2( 48, 28 )
+texture = ExtResource( 2 )
+region = true
+region_rect = Rect2( 32, 16, 16, 16 )
+
+[node name="body" type="StaticBody2D" parent="tile_6"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 7 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="hitbox" type="CollisionShape2D" parent="tile_6/body"]
+
+shape = SubResource( 7 )
+trigger = false
+_update_shape_index = 0
+
+[node name="tile_7" type="Sprite" parent="."]
+
+transform/pos = Vector2( 68, 28 )
+texture = ExtResource( 2 )
+region = true
+region_rect = Rect2( 48, 16, 16, 16 )
+
+[node name="body" type="StaticBody2D" parent="tile_7"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 8 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="hitbox" type="CollisionShape2D" parent="tile_7/body"]
+
+shape = SubResource( 8 )
+trigger = false
+_update_shape_index = 0
+
+[node name="tile_8" type="Sprite" parent="."]
+
+transform/pos = Vector2( 8, 48 )
+texture = ExtResource( 2 )
+region = true
+region_rect = Rect2( 0, 32, 16, 16 )
+
+[node name="body" type="StaticBody2D" parent="tile_8"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 9 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="hitbox" type="CollisionShape2D" parent="tile_8/body"]
+
+shape = SubResource( 9 )
+trigger = false
+_update_shape_index = 0
+
+[node name="tile_9" type="Sprite" parent="."]
+
+transform/pos = Vector2( 28, 48 )
+texture = ExtResource( 2 )
+region = true
+region_rect = Rect2( 16, 32, 16, 16 )
+
+[node name="body" type="StaticBody2D" parent="tile_9"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 10 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="hitbox" type="CollisionShape2D" parent="tile_9/body"]
+
+shape = SubResource( 10 )
+trigger = false
+_update_shape_index = 0
+
+[node name="tile_10" type="Sprite" parent="."]
+
+transform/pos = Vector2( 48, 48 )
+texture = ExtResource( 2 )
+region = true
+region_rect = Rect2( 32, 32, 16, 16 )
+
+[node name="body" type="StaticBody2D" parent="tile_10"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 11 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="hitbox" type="CollisionShape2D" parent="tile_10/body"]
+
+shape = SubResource( 11 )
+trigger = false
+_update_shape_index = 0
+
+[node name="tile_11" type="Sprite" parent="."]
+
+transform/pos = Vector2( 68, 48 )
+texture = ExtResource( 2 )
+region = true
+region_rect = Rect2( 48, 32, 16, 16 )
+
+[node name="body" type="StaticBody2D" parent="tile_11"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 12 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="hitbox" type="CollisionShape2D" parent="tile_11/body"]
+
+shape = SubResource( 12 )
+trigger = false
+_update_shape_index = 0
+
+[node name="tile_12" type="Sprite" parent="."]
+
+transform/pos = Vector2( 8, 68 )
+texture = ExtResource( 2 )
+region = true
+region_rect = Rect2( 0, 48, 16, 16 )
+
+[node name="body" type="StaticBody2D" parent="tile_12"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 13 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="hitbox" type="CollisionShape2D" parent="tile_12/body"]
+
+shape = SubResource( 13 )
+trigger = false
+_update_shape_index = 0
+
+[node name="tile_13" type="Sprite" parent="."]
+
+transform/pos = Vector2( 28, 68 )
+texture = ExtResource( 2 )
+region = true
+region_rect = Rect2( 16, 48, 16, 16 )
+
+[node name="body" type="StaticBody2D" parent="tile_13"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 14 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="hitbox" type="CollisionShape2D" parent="tile_13/body"]
+
+shape = SubResource( 14 )
+trigger = false
+_update_shape_index = 0
+
+[node name="tile_14" type="Sprite" parent="."]
+
+transform/pos = Vector2( 48, 68 )
+texture = ExtResource( 2 )
+region = true
+region_rect = Rect2( 32, 48, 16, 16 )
+
+[node name="body" type="StaticBody2D" parent="tile_14"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 15 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="hitbox" type="CollisionShape2D" parent="tile_14/body"]
+
+shape = SubResource( 15 )
+trigger = false
+_update_shape_index = 0
+
+[node name="tile_15" type="Sprite" parent="."]
+
+transform/pos = Vector2( 68, 68 )
+texture = ExtResource( 2 )
+region = true
+region_rect = Rect2( 48, 48, 16, 16 )
+
+[node name="body" type="StaticBody2D" parent="tile_15"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 16 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="hitbox" type="CollisionShape2D" parent="tile_15/body"]
+
+shape = SubResource( 16 )
+trigger = false
+_update_shape_index = 0
+
+
