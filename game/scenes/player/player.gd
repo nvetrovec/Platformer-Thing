@@ -1,6 +1,8 @@
 extends RigidBody2D
 
 signal play_animation(name)
+signal display_coins(text)
+signal play_sound(name)
 const STATE_IDLE = "idle"
 const STATE_RUN = "run"
 const STATE_JUMP_START = "jump_start"
@@ -15,6 +17,16 @@ var _state = STATE_IDLE # use _set_state to properly handle this stuff
 var _just_pressed_jump = false
 var _ground_index = -1
 var _airborne_time = 0.0
+var _coins = 0
+
+func add_coin(coin):
+	coin.queue_free()
+	_coins += 1
+	emit_signal("play_sound", "coin")
+	_display_coins()
+
+func _ready():
+	_display_coins()
 
 func _integrate_forces(body_state):
 	# find the ground, that is, a contact with an upwards-facing collision normal
@@ -36,6 +48,9 @@ func _integrate_forces(body_state):
 	linear_velocity += body_state.get_total_gravity() * body_state.get_step()
 	body_state.set_linear_velocity(linear_velocity)
 
+func _display_coins():
+	emit_signal("display_coins", "Coins: " + str(_coins))
+
 # handles all the enter/exit actions of a state
 func _set_state(new_state, body_state):
 	# can't necessarily change state if changing to the same state
@@ -50,43 +65,6 @@ func _set_state(new_state, body_state):
 			call(enter_func, body_state)
 		# finally, switch to the new state
 		_state = new_state
-
-# sets the direction that the player is facing
-func _set_direction(dir):
-	if (dir == DIR_LEFT):
-		get_node("torso").set_scale(Vector2(-1, 1))
-	elif (dir == DIR_RIGHT):
-		get_node("torso").set_scale(Vector2(1, 1))
-
-# get the direction that the player is facing, -1=left 1=right
-func _get_direction():
-	return get_node("torso").get_scale().x
-
-# handles left/right movement controls
-func _move_left_right():
-	var move_left = Input.is_action_pressed("ui_left")
-	var move_right = Input.is_action_pressed("ui_right")
-	if (move_left and not move_right):
-		_set_direction(DIR_LEFT)
-		return STATE_RUN
-	elif (not move_left and move_right):
-		_set_direction(DIR_RIGHT)
-		return STATE_RUN
-	return STATE_IDLE
-
-# returns true if the jump key was just pressed, and updates that key's state
-func _check_jump():
-	if (Input.is_action_pressed("player_jump")):
-		if (_just_pressed_jump):
-			_just_pressed_jump = false
-			return true
-	else:
-		_just_pressed_jump = true
-	return false
-
-# returns true if the player is on the ground
-func _is_on_ground(body_state):
-	return body_state.get_linear_velocity().y >= 0 and _ground_index >= 0
 
 func _enter_state_idle(body_state):
 	emit_signal("play_animation", "idle")
@@ -136,3 +114,40 @@ func _state_airborne(body_state):
 	if (not _is_on_ground(body_state)):
 		return STATE_AIRBORNE
 	return state
+
+# returns true if the player is on the ground
+func _is_on_ground(body_state):
+	return body_state.get_linear_velocity().y >= 0 and _ground_index >= 0
+
+# returns true if the jump key was just pressed, and updates that key's state
+func _check_jump():
+	if (Input.is_action_pressed("player_jump")):
+		if (_just_pressed_jump):
+			_just_pressed_jump = false
+			return true
+	else:
+		_just_pressed_jump = true
+	return false
+
+# handles left/right movement controls
+func _move_left_right():
+	var move_left = Input.is_action_pressed("ui_left")
+	var move_right = Input.is_action_pressed("ui_right")
+	if (move_left and not move_right):
+		_set_direction(DIR_LEFT)
+		return STATE_RUN
+	elif (not move_left and move_right):
+		_set_direction(DIR_RIGHT)
+		return STATE_RUN
+	return STATE_IDLE
+
+# sets the direction that the player is facing
+func _set_direction(dir):
+	if (dir == DIR_LEFT):
+		get_node("torso").set_scale(Vector2(-1, 1))
+	elif (dir == DIR_RIGHT):
+		get_node("torso").set_scale(Vector2(1, 1))
+
+# get the direction that the player is facing, -1=left 1=right
+func _get_direction():
+	return get_node("torso").get_scale().x

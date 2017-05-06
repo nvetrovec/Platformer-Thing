@@ -6,7 +6,10 @@ A prototype for a platformer made using Godot.
 * Space: Jump.
 
 ## Things I learned
-This was my first time using cutout animation to minimize the amount of sprites I would have to draw. I also learned a lot about the physics engine and how to properly use it so the player doesn't get stuck on the tilemap, as well as how to apply the State Pattern to make the player script more extendable.
+* First time using cutout animation to minimize the amount of sprites I would have to draw.
+* A lot about the physics engine and how to properly use it so the player doesn't get stuck on the tilemap.
+* How to apply the State Pattern to make the player script more extendable.
+* Sound design using sfxr.
 
 ## License
 MIT.

@@ -1,17 +1,18 @@
-[gd_scene load_steps=18 format=1]
+[gd_scene load_steps=20 format=1]
 
 [ext_resource path="res://scenes/player/player.gd" type="Script" id=1]
 [ext_resource path="res://scenes/player/airborne.tres" type="Animation" id=2]
 [ext_resource path="res://scenes/player/idle.tres" type="Animation" id=3]
 [ext_resource path="res://scenes/player/run.tres" type="Animation" id=4]
-[ext_resource path="res://scenes/player/player_torso.tex" type="Texture" id=5]
-[ext_resource path="res://scenes/player/player_arm_l.tex" type="Texture" id=6]
-[ext_resource path="res://scenes/player/player_hand_l.tex" type="Texture" id=7]
-[ext_resource path="res://scenes/player/player_leg_l.tex" type="Texture" id=8]
-[ext_resource path="res://scenes/player/player_head.tex" type="Texture" id=9]
-[ext_resource path="res://scenes/player/player_leg_r.tex" type="Texture" id=10]
-[ext_resource path="res://scenes/player/player_arm_r.tex" type="Texture" id=11]
-[ext_resource path="res://scenes/player/player_hand_r.tex" type="Texture" id=12]
+[ext_resource path="res://scenes/player/coin.smp" type="Sample" id=5]
+[ext_resource path="res://scenes/player/player_torso.tex" type="Texture" id=6]
+[ext_resource path="res://scenes/player/player_arm_l.tex" type="Texture" id=7]
+[ext_resource path="res://scenes/player/player_hand_l.tex" type="Texture" id=8]
+[ext_resource path="res://scenes/player/player_leg_l.tex" type="Texture" id=9]
+[ext_resource path="res://scenes/player/player_head.tex" type="Texture" id=10]
+[ext_resource path="res://scenes/player/player_leg_r.tex" type="Texture" id=11]
+[ext_resource path="res://scenes/player/player_arm_r.tex" type="Texture" id=12]
+[ext_resource path="res://scenes/player/player_hand_r.tex" type="Texture" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -37,6 +38,15 @@ length = 1.0
 
 custom_solver_bias = 0.0
 length = 1.0
+
+[sub_resource type="SampleLibrary" id=6]
+
+samples/coin = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 5 )
+}
 
 [node name="player" type="RigidBody2D"]
 
@@ -91,6 +101,23 @@ playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
 
+[node name="sample_player" type="SamplePlayer" parent="."]
+
+config/polyphony = 1
+config/samples = SubResource( 6 )
+default/volume_db = 0.0
+default/pitch_scale = 1.0
+default/pan = 0.0
+default/depth = 0.0
+default/height = 0.0
+default/filter/type = 0
+default/filter/cutoff = 5000.0
+default/filter/resonance = 1.0
+default/filter/gain = 1.0
+default/reverb_room = 2
+default/reverb_send = 0.0
+default/chorus_send = 0.0
+
 [node name="camera" type="Camera2D" parent="."]
 
 anchor_mode = 1
@@ -110,10 +137,31 @@ drag_margin/top = 0.0
 drag_margin/right = 0.0
 drag_margin/bottom = 0.0
 
+[node name="hud" type="CanvasLayer" parent="camera"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="coins" type="Label" parent="camera/hud"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 14.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="torso" type="Sprite" parent="."]
 
 transform/pos = Vector2( 0, 8 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 offset = Vector2( 0, -8 )
 __meta__ = {
 "_edit_bone_": true,
@@ -124,13 +172,13 @@ __meta__ = {
 
 visibility/behind_parent = true
 transform/pos = Vector2( 1, -15 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 offset = Vector2( 0, 8 )
 
 [node name="hand_l" type="Sprite" parent="torso/arm_l"]
 
 transform/pos = Vector2( 0, 18 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 offset = Vector2( 0, 2 )
 
 [node name="end_l" type="Position2D" parent="torso/arm_l/hand_l"]
@@ -144,13 +192,13 @@ __meta__ = {
 
 visibility/behind_parent = true
 transform/pos = Vector2( 1, 2 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 offset = Vector2( 0, 10 )
 
 [node name="head" type="Sprite" parent="torso"]
 
 transform/pos = Vector2( 1, -20 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 offset = Vector2( 0, -8 )
 __meta__ = {
 "_edit_bone_": true
@@ -159,7 +207,7 @@ __meta__ = {
 [node name="leg_r" type="Sprite" parent="torso"]
 
 transform/pos = Vector2( 1, 2 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 offset = Vector2( 0, 10 )
 __meta__ = {
 "_edit_bone_": true
@@ -168,7 +216,7 @@ __meta__ = {
 [node name="arm_r" type="Sprite" parent="torso"]
 
 transform/pos = Vector2( 1, -15 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 offset = Vector2( 0, 8 )
 __meta__ = {
 "_edit_bone_": true,
@@ -178,7 +226,7 @@ __meta__ = {
 [node name="hand_r" type="Sprite" parent="torso/arm_r"]
 
 transform/pos = Vector2( 0, 18 )
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 offset = Vector2( 0, 2 )
 __meta__ = {
 "_edit_bone_": true
@@ -229,6 +277,10 @@ shape = SubResource( 5 )
 trigger = false
 _update_shape_index = 4
 
+[connection signal="display_coins" from="." to="camera/hud/coins" method="set_text"]
+
 [connection signal="play_animation" from="." to="animation_player" method="play"]
+
+[connection signal="play_sound" from="." to="sample_player" method="play"]
 
 
