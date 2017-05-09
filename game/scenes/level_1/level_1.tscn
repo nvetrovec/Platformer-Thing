@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://scenes/tileset/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/level_1/tiles.gd" type="Script" id=2]
-[ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/coin/coin.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/spikes/spikes.tres" type="TileSet" id=3]
+[ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/coin/coin.tscn" type="PackedScene" id=5]
 
 [node name="level_1" type="Node2D"]
 
@@ -29,36 +30,97 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="player" parent="." instance=ExtResource( 3 )]
+[node name="spikes" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 3 )
+cell/size = Vector2( 16, 16 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 1769481, 0, 1769482, 0, 1769483, 0, 1769484, 0, 1769485, 0, 1769486, 0, 1769487, 0, 1769488, 0, 1769489, 0, 1769490, 0, 1769491, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="player" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 27, 48 )
 
-[node name="coin" parent="." instance=ExtResource( 4 )]
+[node name="coin" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 448, 288 )
 
-[node name="coin1" parent="." instance=ExtResource( 4 )]
+[node name="coin1" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 480, 288 )
 
-[node name="coin2" parent="." instance=ExtResource( 4 )]
+[node name="coin2" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 512, 288 )
 
-[node name="coin3" parent="." instance=ExtResource( 4 )]
+[node name="coin3" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 736, 32 )
 
-[node name="coin4" parent="." instance=ExtResource( 4 )]
+[node name="coin4" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 704, 32 )
 
-[node name="coin5" parent="." instance=ExtResource( 4 )]
+[node name="coin5" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 736, 64 )
 
-[node name="coin6" parent="." instance=ExtResource( 4 )]
+[node name="coin6" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 704, 64 )
+
+[node name="coin7" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 32, 400 )
+
+[node name="coin8" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 48, 416 )
+
+[node name="coin9" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 64, 432 )
+
+[node name="coin10" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 80, 416 )
+
+[node name="coin11" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 32, 384 )
+
+[node name="coin12" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 48, 368 )
+
+[node name="coin13" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 64, 384 )
+
+[node name="coin14" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 80, 368 )
+
+[node name="coin15" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 96, 384 )
+
+[node name="coin16" parent="." instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 96, 400 )
 
 
