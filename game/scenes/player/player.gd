@@ -18,12 +18,24 @@ var _just_pressed_jump = false
 var _ground_index = -1
 var _airborne_time = 0.0
 var _coins = 0
+var _restart_pos = Vector2(0, 0)
 
 func add_coin(coin):
 	coin.queue_free()
 	_coins += 1
 	emit_signal("play_sound", "coin")
 	_display_coins()
+
+func set_restart_pos(restart_pos):
+	_restart_pos = restart_pos
+
+func restart(body_state = null):
+	if (body_state == null):
+		set_pos(_restart_pos)
+	else:
+		var transform = body_state.get_transform()
+		transform.o = _restart_pos
+		body_state.set_transform(transform)
 
 func _ready():
 	_display_coins()
@@ -32,6 +44,9 @@ func _integrate_forces(body_state):
 	# find the ground, that is, a contact with an upwards-facing collision normal
 	_ground_index = -1
 	for contact_id in range(body_state.get_contact_count()):
+		if (body_state.get_contact_collider_object(contact_id).get_name() == "spikes"):
+			restart(body_state)
+			return
 		var collision_normal = body_state.get_contact_local_normal(contact_id)
 		if (collision_normal.dot(Vector2(0, -1)) > 0.6):
 			_ground_index = contact_id
