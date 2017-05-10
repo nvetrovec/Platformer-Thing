@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://scenes/level_1/level_1.gd" type="Script" id=1]
-[ext_resource path="res://scenes/tileset/tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://scenes/tiles/tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://scenes/level_1/tiles.gd" type="Script" id=3]
 [ext_resource path="res://scenes/spikes/spikes.tres" type="TileSet" id=4]
 [ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=5]

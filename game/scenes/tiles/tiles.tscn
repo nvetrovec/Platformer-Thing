@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=1]
 
-[ext_resource path="res://scenes/tileset/tileset.gd" type="Script" id=1]
-[ext_resource path="res://scenes/tileset/tileset.tex" type="Texture" id=2]
+[ext_resource path="res://scenes/tiles/tiles.gd" type="Script" id=1]
+[ext_resource path="res://scenes/tiles/tiles.tex" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -83,7 +83,7 @@ extents = Vector2( 8, 8 )
 custom_solver_bias = 0.0
 extents = Vector2( 8, 8 )
 
-[node name="tileset" type="Node2D"]
+[node name="tiles" type="Node2D"]
 
 script/script = ExtResource( 1 )
 reset = false
